@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Our Forever Story ❤️</title>
+<title>Ravi ❤️ Buvi</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
@@ -47,7 +47,6 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  to{transform:translateY(110vh);opacity:0}
 }
 
-/* Cards */
 .card{
  background:rgba(255,255,255,.15);
  backdrop-filter:blur(12px);
@@ -57,7 +56,6 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  max-width:360px;
 }
 
-/* Gallery */
 .gallery{
  display:flex;
  overflow-x:auto;
@@ -66,12 +64,11 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  scroll-snap-type:x mandatory;
 }
 .gallery img{
- height:180px;
+ height:200px;
  border-radius:14px;
  scroll-snap-align:center;
 }
 
-/* Modal */
 .modal{
  display:none;
  position:fixed;
@@ -89,22 +86,16 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  max-width:320px;
 }
 
-/* Proposal heart */
-.big-heart{
- font-size:70px;
- animation:pulse 1.2s infinite;
-}
-@keyframes pulse{
- 0%{transform:scale(1)}
- 50%{transform:scale(1.2)}
- 100%{transform:scale(1)}
-}
-
 .qr-box{
  background:white;
  padding:12px;
  border-radius:14px;
  display:inline-block;
+}
+.qr-box img{
+ width:120px;
+ border-radius:12px;
+ margin-bottom:10px;
 }
 </style>
 </head>
@@ -118,7 +109,6 @@ setInterval(()=>{
  h.className="heart";
  h.innerHTML="❤️";
  h.style.left=Math.random()*100+"vw";
- h.style.fontSize=(Math.random()*18+12)+"px";
  document.body.appendChild(h);
  setTimeout(()=>h.remove(),6000);
 },350);
@@ -126,13 +116,13 @@ setInterval(()=>{
 
 <!-- HERO -->
 <section>
-<h1>Ravi ❤️ Priya</h1>
+<h1>Ravi ❤️ Buvi</h1>
 <p id="type"></p>
-<button class="btn" onclick="toggleMusic()">🎵 Music</button>
+<button class="btn" onclick="toggleMusic()">🎵 Our Song</button>
 <button class="btn" onclick="openLetter()">💌 Love Letter</button>
 </section>
 
-<!-- MARRIAGE DAYS -->
+<!-- MARRIED DAYS -->
 <section>
 <h2>Married for</h2>
 <h3 id="days"></h3>
@@ -142,55 +132,82 @@ setInterval(()=>{
 <section>
 <h2>Our Love Story</h2>
 
-<div class="card">💘 Dec 07, 2024 — We met at the mall, nervous but magical.</div>
-<div class="card">🌸 Dec 08, 2024 — I asked to meet again… and she said YES.</div>
-<div class="card">👨‍👩‍👧 Jan 24, 2025 — Families met & our journey was confirmed.</div>
-<div class="card">💍 Feb 08, 2025 — I proposed for Valentine’s.</div>
-<div class="card">❤️ Our beautiful love story began.</div>
-<div class="card">💒 June 08, 2025 — We got married.</div>
+<div class="card">
+💘 <b>Dec 07, 2024</b><br>
+A simple meeting at the mall… but my heart knew it was something special.
+Nervous smiles, shy conversations, and a spark I could never explain.
+</div>
+
+<div class="card">
+🌸 <b>Dec 08, 2024</b><br>
+I didn’t want that moment to end… so I asked if we could meet again.
+And when you said YES, that’s when destiny whispered — “She’s the one.”
+</div>
+
+<div class="card">
+👨‍👩‍👧 <b>Jan 24, 2025</b><br>
+Our families met, and what began as a proposal became a promise.
+Two lives slowly becoming one beautiful story.
+</div>
+
+<div class="card">
+💍 <b>Feb 08, 2025</b><br>
+I asked you to be mine forever…
+And that day, love stopped being a word — it became our reality.
+</div>
+
+<div class="card">
+💒 <b>June 08, 2025</b><br>
+From strangers… to soulmates… to husband and wife.
+The day I married my best friend.
+</div>
 
 </section>
 
-<!-- GALLERY (replace images later if you want) -->
+<!-- GALLERY -->
 <section>
-<h2>Our Memories</h2>
+<h2>Our Favorite Memories</h2>
 <div class="gallery">
-<img src="https://picsum.photos/400?1">
-<img src="https://picsum.photos/400?2">
-<img src="https://picsum.photos/400?3">
-<img src="https://picsum.photos/400?4">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+</div>
+<p style="font-size:14px;">(Upload your favorite photos and rename them photo1.jpg etc.)</p>
+</section>
+
+<!-- FOREVER SECTION -->
+<section>
+<h2>Forever With You ❤️</h2>
+<div class="card">
+You are not my “One Question” anymore…  
+You are my forever answer.  
+Every sunrise with you feels like a blessing.
 </div>
 </section>
 
-<!-- PROPOSAL -->
-<section>
-<h2>One Question ❤️</h2>
-<div class="big-heart">❤️</div>
-<button class="btn" onclick="showProposal()">Tap Here</button>
-<p id="proposal" style="display:none;font-size:22px;margin-top:15px;">
-Will you continue this forever journey with me? 💍
-</p>
-</section>
-
-<!-- QR -->
+<!-- QR SECTION -->
 <section>
 <h2>Scan Me ❤️</h2>
 <div class="qr-box">
+<img src="favphoto.jpg">
 <canvas id="qr"></canvas>
 </div>
+<p style="font-size:14px;">(Replace favphoto.jpg with your favorite picture)</p>
 </section>
 
-<footer>Made only for you ❤️</footer>
+<footer>Made with all my love ❤️ — Your Husband</footer>
 
-<!-- LOVE LETTER MODAL -->
+<!-- LOVE LETTER -->
 <div class="modal" id="letter">
  <div class="modal-content">
- <h2>My Love,</h2>
+ <h2>My Buvi,</h2>
  <p>
- From a nervous first meeting to becoming husband and wife,
- every moment with you feels like destiny.
- I promise to love you today, tomorrow, and forever.
- ❤️
+ Meeting you was destiny.  
+ Loving you was effortless.  
+ Marrying you was the best decision of my life.  
+ I promise to hold your hand through every high and low.
+ Forever yours ❤️
  </p>
  <button class="btn" onclick="closeLetter()">Close</button>
  </div>
@@ -198,16 +215,14 @@ Will you continue this forever journey with me? 💍
 
 <!-- MUSIC -->
 <audio id="bgMusic" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+<source src="your-song.mp3">
 </audio>
 
-<!-- QR LIBRARY -->
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 <script>
-
-/* Typewriter intro */
-const text="Every love story is beautiful, but ours is my favorite ❤️";
+/* Typewriter */
+const text="Every love story is beautiful… but ours is my favorite ❤️";
 let i=0;
 (function type(){
  if(i<text.length){
@@ -216,7 +231,7 @@ let i=0;
  }
 })();
 
-/* Married days counter */
+/* Days counter */
 const start=new Date("June 8, 2025");
 const diff=Math.floor((new Date()-start)/(1000*60*60*24));
 document.getElementById("days").innerHTML=diff+" days ❤️";
@@ -225,18 +240,14 @@ document.getElementById("days").innerHTML=diff+" days ❤️";
 function openLetter(){letter.style.display="flex";}
 function closeLetter(){letter.style.display="none";}
 
-/* Proposal */
-function showProposal(){proposal.style.display="block";}
-
-/* Music toggle */
+/* Music */
 function toggleMusic(){
  bgMusic.paused?bgMusic.play():bgMusic.pause();
 }
 
-/* QR (IMPORTANT: Replace after GitHub Pages is live) */
+/* QR */
 const websiteURL="https://RaviBuvio8.github.io/valentine14th/";
 QRCode.toCanvas(document.getElementById('qr'), websiteURL,{width:200});
-
 </script>
 
 </body>
