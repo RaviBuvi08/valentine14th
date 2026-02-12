@@ -37,7 +37,7 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  margin:8px;
 }
 
-/* Floating hearts */
+/* floating hearts */
 .heart{
  position:fixed;
  top:-10px;
@@ -47,6 +47,7 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  to{transform:translateY(110vh);opacity:0}
 }
 
+/* glass cards */
 .card{
  background:rgba(255,255,255,.15);
  backdrop-filter:blur(12px);
@@ -56,19 +57,27 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  max-width:360px;
 }
 
+/* gallery */
 .gallery{
  display:flex;
  overflow-x:auto;
  gap:14px;
  padding:10px;
- scroll-snap-type:x mandatory;
-}
-.gallery img{
- height:200px;
- border-radius:14px;
- scroll-snap-align:center;
 }
 
+.gallery div{
+ background:white;
+ padding:10px;
+ border-radius:14px;
+ color:#333;
+}
+
+.gallery img{
+ width:170px;
+ border-radius:10px;
+}
+
+/* modal */
 .modal{
  display:none;
  position:fixed;
@@ -103,152 +112,4 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
 <body>
 
 <script>
-/* Floating hearts */
-setInterval(()=>{
- const h=document.createElement("div");
- h.className="heart";
- h.innerHTML="❤️";
- h.style.left=Math.random()*100+"vw";
- document.body.appendChild(h);
- setTimeout(()=>h.remove(),6000);
-},350);
-</script>
-
-<!-- HERO -->
-<section>
-<h1>Ravi ❤️ Buvi</h1>
-<p id="type"></p>
-<button class="btn" onclick="toggleMusic()">🎵 Our Song</button>
-<button class="btn" onclick="openLetter()">💌 Love Letter</button>
-</section>
-
-<!-- MARRIED DAYS -->
-<section>
-<h2>Married for</h2>
-<h3 id="days"></h3>
-</section>
-
-<!-- STORY -->
-<section>
-<h2>Our Love Story</h2>
-
-<div class="card">
-💘 <b>Dec 07, 2024</b><br>
-A simple meeting at the mall… but my heart knew it was something special.
-Nervous smiles, shy conversations, and a spark I could never explain.
-</div>
-
-<div class="card">
-🌸 <b>Dec 08, 2024</b><br>
-I didn’t want that moment to end… so I asked if we could meet again.
-And when you said YES, that’s when destiny whispered — “She’s the one.”
-</div>
-
-<div class="card">
-👨‍👩‍👧 <b>Jan 24, 2025</b><br>
-Our families met, and what began as a proposal became a promise.
-Two lives slowly becoming one beautiful story.
-</div>
-
-<div class="card">
-💍 <b>Feb 08, 2025</b><br>
-I asked you to be mine forever…
-And that day, love stopped being a word — it became our reality.
-</div>
-
-<div class="card">
-💒 <b>June 08, 2025</b><br>
-From strangers… to soulmates… to husband and wife.
-The day I married my best friend.
-</div>
-
-</section>
-
-<!-- GALLERY -->
-<section>
-<h2>Our Favorite Memories</h2>
-<div class="gallery">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-</div>
-<p style="font-size:14px;">(Upload your favorite photos and rename them photo1.jpg etc.)</p>
-</section>
-
-<!-- FOREVER SECTION -->
-<section>
-<h2>Forever With You ❤️</h2>
-<div class="card">
-You are not my “One Question” anymore…  
-You are my forever answer.  
-Every sunrise with you feels like a blessing.
-</div>
-</section>
-
-<!-- QR SECTION -->
-<section>
-<h2>Scan Me ❤️</h2>
-<div class="qr-box">
-<img src="favphoto.jpg">
-<canvas id="qr"></canvas>
-</div>
-<p style="font-size:14px;">(Replace favphoto.jpg with your favorite picture)</p>
-</section>
-
-<footer>Made with all my love ❤️ — Your Husband</footer>
-
-<!-- LOVE LETTER -->
-<div class="modal" id="letter">
- <div class="modal-content">
- <h2>My Buvi,</h2>
- <p>
- Meeting you was destiny.  
- Loving you was effortless.  
- Marrying you was the best decision of my life.  
- I promise to hold your hand through every high and low.
- Forever yours ❤️
- </p>
- <button class="btn" onclick="closeLetter()">Close</button>
- </div>
-</div>
-
-<!-- MUSIC -->
-<audio id="bgMusic" loop>
-<source src="your-song.mp3">
-</audio>
-
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-
-<script>
-/* Typewriter */
-const text="Every love story is beautiful… but ours is my favorite ❤️";
-let i=0;
-(function type(){
- if(i<text.length){
-   document.getElementById("type").innerHTML+=text[i++];
-   setTimeout(type,40);
- }
-})();
-
-/* Days counter */
-const start=new Date("June 8, 2025");
-const diff=Math.floor((new Date()-start)/(1000*60*60*24));
-document.getElementById("days").innerHTML=diff+" days ❤️";
-
-/* Modal */
-function openLetter(){letter.style.display="flex";}
-function closeLetter(){letter.style.display="none";}
-
-/* Music */
-function toggleMusic(){
- bgMusic.paused?bgMusic.play():bgMusic.pause();
-}
-
-/* QR */
-const websiteURL="https://RaviBuvio8.github.io/valentine14th/";
-QRCode.toCanvas(document.getElementById('qr'), websiteURL,{width:200});
-</script>
-
-</body>
-</html>
+/* floating hearts */
