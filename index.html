@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ravi ❤️ Buvi</title>
 
@@ -28,16 +28,17 @@ section{padding:60px 20px}
 h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
 
 .btn{
- padding:12px 25px;
- border-radius:25px;
+ padding:12px 24px;
  border:none;
+ border-radius:25px;
  background:white;
  color:#ff3b6f;
  font-weight:600;
  margin:8px;
+ cursor:pointer;
 }
 
-/* floating hearts */
+/* hearts */
 .heart{
  position:fixed;
  top:-10px;
@@ -47,12 +48,12 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  to{transform:translateY(110vh);opacity:0}
 }
 
-/* glass cards */
+/* cards */
 .card{
  background:rgba(255,255,255,.15);
  backdrop-filter:blur(12px);
- padding:18px;
  border-radius:15px;
+ padding:18px;
  margin:12px auto;
  max-width:360px;
 }
@@ -62,16 +63,14 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  display:flex;
  overflow-x:auto;
  gap:14px;
- padding:10px;
+ padding:12px;
 }
-
 .gallery div{
  background:white;
  padding:10px;
  border-radius:14px;
  color:#333;
 }
-
 .gallery img{
  width:170px;
  border-radius:10px;
@@ -88,13 +87,14 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
  padding:20px;
 }
 .modal-content{
- background:#fff;
+ background:white;
  color:#333;
- border-radius:18px;
  padding:25px;
+ border-radius:18px;
  max-width:320px;
 }
 
+/* qr */
 .qr-box{
  background:white;
  padding:12px;
@@ -104,7 +104,7 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
 .qr-box img{
  width:120px;
  border-radius:12px;
- margin-bottom:10px;
+ margin-bottom:8px;
 }
 </style>
 </head>
@@ -113,3 +113,161 @@ h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
 
 <script>
 /* floating hearts */
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},350);
+</script>
+
+<!-- HERO -->
+<section>
+<h1>Ravi ❤️ Buvi</h1>
+<p id="type"></p>
+<button class="btn" onclick="toggleMusic()">🎵 Our Song</button>
+<button class="btn" onclick="openLetter()">💌 Love Letter</button>
+</section>
+
+<!-- DAYS -->
+<section>
+<h2>Married for</h2>
+<h3 id="days"></h3>
+</section>
+
+<!-- STORY -->
+<section>
+<h2>Our Love Story</h2>
+
+<div class="card">💘 A simple meeting… nervous smiles… but my heart already knew you were special.</div>
+<div class="card">🌸 When you said YES to meeting again, destiny quietly smiled at us.</div>
+<div class="card">👨‍👩‍👧 Families met, hearts connected, and life started writing our story.</div>
+<div class="card">💍 Love grew deeper every day until forever felt natural.</div>
+<div class="card">💒 And then I married not just my wife… but my best friend and my home.</div>
+
+</section>
+
+<!-- HERO PHOTO -->
+<section>
+<h2>Our Favorite Moments ❤️</h2>
+
+<img src="hero.jpg" style="width:95%;max-width:380px;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.35);">
+
+<p style="margin-top:18px;font-size:18px;">
+Every picture holds a heartbeat… every moment holds my forever.
+</p>
+
+<div class="gallery">
+
+<div>
+<img src="photo1.jpg">
+<p>The smile I fell for 💕</p>
+</div>
+
+<div>
+<img src="photo2.jpg">
+<p>My calm in every chaos</p>
+</div>
+
+<div>
+<img src="photo3.jpg">
+<p>Forever looks like this ✨</p>
+</div>
+
+<div>
+<img src="photo4.jpg">
+<p>Us. Always ❤️</p>
+</div>
+
+</div>
+
+<p style="margin-top:25px;">
+From strangers… to soulmates… to husband & wife — I’d choose you in every lifetime.
+</p>
+
+</section>
+
+<!-- FOREVER -->
+<section>
+<div class="card">
+You are not my question anymore…  
+You are my forever answer ❤️
+</div>
+</section>
+
+<!-- QR -->
+<section>
+<h2>Scan Me ❤️</h2>
+
+<div class="qr-box">
+<img src="favphoto.jpg">
+<canvas id="qr"></canvas>
+</div>
+
+<p style="font-size:14px;">Scan to open our love story</p>
+</section>
+
+<footer style="padding:40px 0;">
+Made with endless love ❤️ — Your Husband
+</footer>
+
+<!-- LETTER -->
+<div class="modal" id="letter">
+ <div class="modal-content">
+ <h2>My Buvi,</h2>
+ <p>
+ Meeting you was destiny.<br>
+ Loving you was effortless.<br>
+ Marrying you was the best decision of my life.<br><br>
+ I promise to hold your hand forever ❤️
+ </p>
+ <button class="btn" onclick="closeLetter()">Close</button>
+ </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- QR LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+<script>
+/* typing */
+const text="Every love story is beautiful… but ours is my favorite ❤️";
+let i=0;
+(function type(){
+ if(i<text.length){
+   document.getElementById("type").innerHTML+=text[i++];
+   setTimeout(type,40);
+ }
+})();
+
+/* days counter */
+const start=new Date("June 8, 2025");
+const diff=Math.floor((new Date()-start)/(1000*60*60*24));
+document.getElementById("days").innerHTML=diff+" days ❤️";
+
+/* modal */
+function openLetter(){letter.style.display="flex";}
+function closeLetter(){letter.style.display="none";}
+
+/* music */
+function toggleMusic(){
+ const m=document.getElementById("bgMusic");
+ m.paused?m.play():m.pause();
+}
+
+/* qr */
+QRCode.toCanvas(
+ document.getElementById('qr'),
+ "https://ravibuvi08.github.io/valentine14th/",
+ {width:200}
+);
+</script>
+
+</body>
+</html>
