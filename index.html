@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Forever Story ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+ margin:0;
+ font-family:Poppins,sans-serif;
+ text-align:center;
+ color:white;
+ overflow-x:hidden;
+ background:linear-gradient(-45deg,#ff758c,#ff7eb3,#ffc3a0,#ffafbd);
+ background-size:400% 400%;
+ animation:gradient 12s ease infinite;
+}
+@keyframes gradient{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+section{padding:60px 20px}
+h1,h2{font-family:'Great Vibes',cursive;margin:10px 0}
+
+.btn{
+ padding:12px 25px;
+ border-radius:25px;
+ border:none;
+ background:white;
+ color:#ff3b6f;
+ font-weight:600;
+ margin:8px;
+}
+
+/* Floating hearts */
+.heart{
+ position:fixed;
+ top:-10px;
+ animation:fall 6s linear infinite;
+}
+@keyframes fall{
+ to{transform:translateY(110vh);opacity:0}
+}
+
+/* Cards */
+.card{
+ background:rgba(255,255,255,.15);
+ backdrop-filter:blur(12px);
+ padding:18px;
+ border-radius:15px;
+ margin:12px auto;
+ max-width:360px;
+}
+
+/* Gallery */
+.gallery{
+ display:flex;
+ overflow-x:auto;
+ gap:14px;
+ padding:10px;
+ scroll-snap-type:x mandatory;
+}
+.gallery img{
+ height:180px;
+ border-radius:14px;
+ scroll-snap-align:center;
+}
+
+/* Modal */
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.75);
+ justify-content:center;
+ align-items:center;
+ padding:20px;
+}
+.modal-content{
+ background:#fff;
+ color:#333;
+ border-radius:18px;
+ padding:25px;
+ max-width:320px;
+}
+
+/* Proposal heart */
+.big-heart{
+ font-size:70px;
+ animation:pulse 1.2s infinite;
+}
+@keyframes pulse{
+ 0%{transform:scale(1)}
+ 50%{transform:scale(1.2)}
+ 100%{transform:scale(1)}
+}
+
+.qr-box{
+ background:white;
+ padding:12px;
+ border-radius:14px;
+ display:inline-block;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+/* Floating hearts */
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"vw";
+ h.style.fontSize=(Math.random()*18+12)+"px";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},350);
+</script>
+
+<!-- HERO -->
+<section>
+<h1>Ravi ❤️ Priya</h1>
+<p id="type"></p>
+<button class="btn" onclick="toggleMusic()">🎵 Music</button>
+<button class="btn" onclick="openLetter()">💌 Love Letter</button>
+</section>
+
+<!-- MARRIAGE DAYS -->
+<section>
+<h2>Married for</h2>
+<h3 id="days"></h3>
+</section>
+
+<!-- STORY -->
+<section>
+<h2>Our Love Story</h2>
+
+<div class="card">💘 Dec 07, 2024 — We met at the mall, nervous but magical.</div>
+<div class="card">🌸 Dec 08, 2024 — I asked to meet again… and she said YES.</div>
+<div class="card">👨‍👩‍👧 Jan 24, 2025 — Families met & our journey was confirmed.</div>
+<div class="card">💍 Feb 08, 2025 — I proposed for Valentine’s.</div>
+<div class="card">❤️ Our beautiful love story began.</div>
+<div class="card">💒 June 08, 2025 — We got married.</div>
+
+</section>
+
+<!-- GALLERY (replace images later if you want) -->
+<section>
+<h2>Our Memories</h2>
+<div class="gallery">
+<img src="https://picsum.photos/400?1">
+<img src="https://picsum.photos/400?2">
+<img src="https://picsum.photos/400?3">
+<img src="https://picsum.photos/400?4">
+</div>
+</section>
+
+<!-- PROPOSAL -->
+<section>
+<h2>One Question ❤️</h2>
+<div class="big-heart">❤️</div>
+<button class="btn" onclick="showProposal()">Tap Here</button>
+<p id="proposal" style="display:none;font-size:22px;margin-top:15px;">
+Will you continue this forever journey with me? 💍
+</p>
+</section>
+
+<!-- QR -->
+<section>
+<h2>Scan Me ❤️</h2>
+<div class="qr-box">
+<canvas id="qr"></canvas>
+</div>
+</section>
+
+<footer>Made only for you ❤️</footer>
+
+<!-- LOVE LETTER MODAL -->
+<div class="modal" id="letter">
+ <div class="modal-content">
+ <h2>My Love,</h2>
+ <p>
+ From a nervous first meeting to becoming husband and wife,
+ every moment with you feels like destiny.
+ I promise to love you today, tomorrow, and forever.
+ ❤️
+ </p>
+ <button class="btn" onclick="closeLetter()">Close</button>
+ </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<!-- QR LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+<script>
+
+/* Typewriter intro */
+const text="Every love story is beautiful, but ours is my favorite ❤️";
+let i=0;
+(function type(){
+ if(i<text.length){
+   document.getElementById("type").innerHTML+=text[i++];
+   setTimeout(type,40);
+ }
+})();
+
+/* Married days counter */
+const start=new Date("June 8, 2025");
+const diff=Math.floor((new Date()-start)/(1000*60*60*24));
+document.getElementById("days").innerHTML=diff+" days ❤️";
+
+/* Modal */
+function openLetter(){letter.style.display="flex";}
+function closeLetter(){letter.style.display="none";}
+
+/* Proposal */
+function showProposal(){proposal.style.display="block";}
+
+/* Music toggle */
+function toggleMusic(){
+ bgMusic.paused?bgMusic.play():bgMusic.pause();
+}
+
+/* QR (IMPORTANT: Replace after GitHub Pages is live) */
+const websiteURL="https://RaviBuvio8.github.io/valentine14th/";
+QRCode.toCanvas(document.getElementById('qr'), websiteURL,{width:200});
+
+</script>
+
+</body>
+</html>
